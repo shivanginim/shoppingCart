@@ -2,6 +2,8 @@
 //Select all the productes from database
 $stmt = $pdo->prepare('SELECT * FROM products');
 $stmt->execute();
+
+//Create Product as an array
 $all_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $total_products = $pdo->query('SELECT * FROM products')->rowCount();
 
@@ -16,7 +18,7 @@ templateHeader('Products');
     <a href="index.php?page=product&id=<?=$product['id']?>" class="product">
       <span class="name"><?=$product['name']?></span>
       <span class="price">
-          &dollar;<?=$product['price']?>
+          &dollar;<?= number_format($product['price'],2);?>
       </span>
     </a>
 		<form action="index.php?page=cart" method="post">

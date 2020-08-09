@@ -24,7 +24,7 @@ templateHeader('Product');
   <div>
     <h1 class="name"><?=$product['name']?></h1>
     <span class="price">
-      &dollar;<?=$product['price']?>
+      &dollar;<?=number_format($product['price'],2)?>
     </span>
     <form action="index.php?page=cart" method="post">
       <input type="number" name="quantity" value="1" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>

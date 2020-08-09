@@ -103,11 +103,11 @@ templateHeader('Shopping Cart')
                 <br>
                 <a href="index.php?page=cart&remove=<?=$product['id']?>" class="remove">Remove</a>
               </td>
-              <td class="price">&dollar;<?=$product['price']?></td>
+              <td class="price">&dollar;<?=number_format($product['price'],2)?></td>
               <td class="quantity">
                 <input type="number" name="quantity-<?=$product['id']?>" value="<?=$products_in_cart[$product['id']]?>" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
               </td>
-              <td class="price">&dollar;<?=$product['price'] * $products_in_cart[$product['id']]?></td>
+              <td class="price">&dollar;<?=number_format($product['price'],2) * $products_in_cart[$product['id']]?></td>
             </tr>
           <?php endforeach; ?>
         <?php endif; ?>
@@ -115,7 +115,7 @@ templateHeader('Shopping Cart')
     </table>
     <div class="subtotal">
       <span class="text">Subtotal</span>
-      <span class="price">&dollar;<?=$subtotal?></span>
+      <span class="price">&dollar;<?=number_format($subtotal,2)?></span>
     </div>
     <div class="buttons">
       <input type="submit" value="Update" name="update">
